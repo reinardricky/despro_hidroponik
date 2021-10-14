@@ -1,0 +1,7 @@
+@media all and (maxwidth:670px){
+    .grafik-wrap {
+        float: left;
+        width: 100%;
+        text-align: center;
+    }
+}
