@@ -1,8 +1,13 @@
-@media all and (maxwidth:670px){
-    h1 {
-        font-size: 28px;
-    }
+@media all and (max-width:900px){
+
     .grafik-wrap {
         width: 100%;
     }
+}
+
+@media all and (max-width:670px){
+    h1 {
+        font-size: 40px;
+    }
+
 }
