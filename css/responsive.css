@@ -1,4 +1,7 @@
 @media all and (maxwidth:670px){
+    .contents h1 {
+        font-size: 28px;
+    }
     .grafik-wrap {
         width: 100%;
     }
