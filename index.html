@@ -21,6 +21,12 @@
 			crossorigin="anonymous"
 		/>
 		<script>
+			function autoRefresh() {
+				window.location = window.location.href;
+			}
+			setInterval("autoRefresh()", 30000);
+		</script>
+		<script>
 			$(document).ready(function () {
 				$.getJSON(
 					"https://api.thingspeak.com/channels/1531842/status/last.json",
@@ -31,7 +37,7 @@
 				$.getJSON(
 					"https://api.thingspeak.com/channels/1531842/feeds/last.json?results=2",
 					function (fields) {
-						document.getElementById("ppm").innerHTML = fields.field1;
+						document.getElementById("ppm").innerHTML = fields.field1 + " ppm";
 						var nilaipH = parseFloat(fields.field2);
 						document.getElementById("pH").innerHTML = nilaipH.toFixed(2);
 					}
