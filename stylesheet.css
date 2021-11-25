@@ -30,16 +30,39 @@ h1 {
 }
 
 .main {
-	float: left;
-	width: 100%;
-	margin-bottom: 50px;
-	padding-bottom: 50px;
-	background-color: #f7f7f7;
+	display: flexbox;
+	margin: 80px 0;
+	background-color: #e8e8e8;
 }
 
-.grafik-wrap {
-	float: left;
-	width: 45%;
+.graph-wrapper {
+	margin: 10px auto;
+	padding: 10px 0 0 0;
 	text-align: center;
-	margin: 15px 15px;
+	font-size: 20px;
+}
+
+.graph {
+	display: block;
+	height: 300px;
+	width: 80%;
+	border: solid 2px #e8e8e8;
+	border-radius: 10px;
+	margin: 15px auto 25px;
+	padding: 5px;
+}
+
+.status {
+	text-align: center;
+	background-color: aquamarine;
+}
+
+.status-title {
+	font-size: 40px;
+}
+
+.status-box {
+	display: block;
+	padding: 40px 10px;
+	font-size: 20px;
 }

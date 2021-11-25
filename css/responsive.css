@@ -1,18 +1,13 @@
-@media all and (min-width: 1440px) {
-	.grafik-wrap {
-		width: 45%;
-	}
-}
-
-@media all and (max-width: 720px) {
-	.grafik-wrap {
-		width: 100%;
-	}
-}
-
 @media all and (max-width: 670px) {
 	h1 {
 		font-size: 40px;
+		margin-bottom: 50px;
+	}
+}
+
+@media all and (min-width: 1440px) {
+	h1 {
+		font-size: 80px;
 		margin-bottom: 50px;
 	}
 }
