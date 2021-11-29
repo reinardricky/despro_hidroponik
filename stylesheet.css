@@ -66,3 +66,21 @@ h1 {
 	padding: 40px 10px;
 	font-size: 20px;
 }
+
+.kolom {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	margin: 10px 10px;
+	text-align: center;
+}
+
+.ember {
+	flex: 1;
+	border: 1px solid #666;
+	margin: 2px;
+	padding: 10px;
+	background: #c4ffae;
+	transition: 0.3s;
+	font-size: 20px;
+}
