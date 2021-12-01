@@ -20,34 +20,8 @@
 			integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
 			crossorigin="anonymous"
 		/>
-		<script>
-			function autoRefresh() {
-				window.location = window.location.href;
-			}
-			setInterval("autoRefresh()", 30000);
-		</script>
-		<script>
-			$(document).ready(function () {
-				$.getJSON(
-					"https://api.thingspeak.com/channels/1531842/status/last.json",
-					function (statusUpdate) {
-						document.getElementById("stat").innerHTML = statusUpdate.status;
-					}
-				);
-				$.getJSON(
-					"https://api.thingspeak.com/channels/1531842/feeds/last.json?results=5",
-					function (fields) {
-						document.getElementById("ppm").innerHTML = fields.field1 + " ppm";
-						var nilaipH = parseFloat(fields.field2);
-						document.getElementById("pH").innerHTML = nilaipH.toFixed(2);
-						document.getElementById("bak_utama").innerHTML =
-							fields.field3 + " %";
-						document.getElementById("bakA").innerHTML = fields.field4 + " %";
-						document.getElementById("bakB").innerHTML = fields.field5 + " %";
-					}
-				);
-			});
-		</script>
+
+		<script src="/javascript/api.js"></script>
 	</head>
 	<body>
 		<header>
