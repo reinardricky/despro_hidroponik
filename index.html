@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Monitoring Hidroponik</title>
@@ -20,36 +21,83 @@
 			crossorigin="anonymous"
 		/>
 		<script>
-			window.setInterval("refresh()", 30000);
-			function refresh() {
-				window.location.reload();
+			function autoRefresh() {
+				window.location = window.location.href;
 			}
+			setInterval("autoRefresh()", 30000);
+		</script>
+		<script>
+			$(document).ready(function () {
+				$.getJSON(
+					"https://api.thingspeak.com/channels/1531842/status/last.json",
+					function (statusUpdate) {
+						document.getElementById("stat").innerHTML = statusUpdate.status;
+					}
+				);
+				$.getJSON(
+					"https://api.thingspeak.com/channels/1531842/feeds/last.json?results=5",
+					function (fields) {
+						document.getElementById("ppm").innerHTML = fields.field1 + " ppm";
+						var nilaipH = parseFloat(fields.field2);
+						document.getElementById("pH").innerHTML = nilaipH.toFixed(2);
+						document.getElementById("bak_utama").innerHTML =
+							fields.field3 + " %";
+						document.getElementById("bakA").innerHTML = fields.field4 + " %";
+						document.getElementById("bakB").innerHTML = fields.field5 + " %";
+					}
+				);
+			});
 		</script>
 	</head>
 	<body>
 		<header>
 			<h1>Monitoring Hidroponik</h1>
 		</header>
-
 		<div class="main">
-			<div class="grafik-wrap">
-				<iframe
-					width="360"
-					height="200"
-					style="border: 1px solid #cccccc"
-					src="https://thingspeak.com/channels/1531842/charts/1?height=200&width=auto&dynamic=true&api_key=
-            QUTHTBFOYOSLA6BX"
-				></iframe>
+			<div class="container">
+				<div class="graph-wrapper">
+					<div class="container-graph">
+						<iframe
+							class="graph ppm"
+							src="https://api.thingspeak.com/channels/1531842/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&update=60&results=20&title=ppm&type=line&xaxis=Waktu&yaxis=ppm&width=auto"
+						></iframe>
+						<h2>Data ppm terakhir</h2>
+						<h2 id="ppm"></h2>
+					</div>
+					<div class="container-graph">
+						<iframe
+							class="graph ph"
+							src="https://api.thingspeak.com/channels/1531842/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&update=60&results=20&title=pH&type=line&xaxis=Waktu&yaxis=pH&width=auto"
+						></iframe>
+						<h2>Data pH terakhir</h2>
+						<h2 id="pH"></h2>
+					</div>
+				</div>
 			</div>
-			<div class="grafik-wrap">
-				<iframe
-					width="360"
-					height="200"
-					style="border: 1px solid #cccccc"
-					src="https://thingspeak.com/channels/1531842/status/recent"
-				></iframe>
+			<div class="container">
+				<div class="kolom">
+					<div class="ember">
+						<h2>Persentase bak utama</h2>
+						<h2 id="bak_utama"></h2>
+					</div>
+					<div class="ember">
+						<h2>Persentase pupuk A</h2>
+						<h2 id="bakA"></h2>
+					</div>
+					<div class="ember">
+						<h2>Persentase pupuk B</h2>
+						<h2 id="bakB"></h2>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="status">
+					<h2 class="status-title">Status Siklus Hidroponik</h2>
+					<div class="status-box">
+						<h2 id="stat"></h2>
+					</div>
+				</div>
 			</div>
 		</div>
-		<footer></footer>
 	</body>
 </html>
