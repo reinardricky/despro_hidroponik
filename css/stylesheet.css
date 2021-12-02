@@ -21,6 +21,12 @@ html {
 	scroll-behavior: smooth;
 }
 
+footer {
+	height: min-content;
+	background-color: #141717;
+	color: #e8e8e8;
+}
+
 h1 {
 	font-size: 50px;
 	text-align: center;
@@ -31,7 +37,7 @@ h1 {
 
 .main {
 	display: flexbox;
-	margin: 80px 0;
+	margin: 80px 0 0px 0px;
 	background-color: #e8e8e8;
 }
 
@@ -55,6 +61,7 @@ h1 {
 .status {
 	text-align: center;
 	background-color: aquamarine;
+	margin-bottom: 0%;
 }
 
 .status-title {
