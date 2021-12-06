@@ -17,6 +17,13 @@ $(document).ready(function () {
 			document.getElementById("suhu").innerHTML = fields.field6 + " \u00B0C";
 			document.getElementById("kelembaban").innerHTML = fields.field7 + " %";
 			document.getElementById("flow").innerHTML = fields.field8 + " L/M";
+			if (fields.field4 <= 20 || fields.field5 <= 20) {
+				document.getElementById("pupuk").innerHTML = "Pupuk Habis";
+			} else if (fields.field4 <= 50 || fields.field5 <= 50) {
+				document.getElementById("pupuk").innerHTML = "Pupuk Tinggal Setengah";
+			} else {
+				document.getElementById("pupuk").innerHTML = "Pupuk Masih Banyak";
+			}
 		}
 	);
 
