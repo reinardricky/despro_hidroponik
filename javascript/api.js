@@ -16,7 +16,7 @@ $(document).ready(function () {
 			document.getElementById("bakB").innerHTML = fields.field5 + " %";
 			document.getElementById("suhu").innerHTML = fields.field6 + " \u00B0C";
 			document.getElementById("kelembaban").innerHTML = fields.field7 + " %";
-			document.getElementById("flow").innerHTML = fields.field8 + " L/M";
+			document.getElementById("flow").innerHTML = fields.field8 + " L/H";
 			if (fields.field4 <= 20 || fields.field5 <= 20) {
 				document.getElementById("pupuk").innerHTML = "Pupuk Habis";
 			} else if (fields.field4 <= 50 || fields.field5 <= 50) {
@@ -45,7 +45,7 @@ $(document).ready(function () {
 				document.getElementById("bakB").innerHTML = fields.field5 + " %";
 				document.getElementById("suhu").innerHTML = fields.field6 + " \u00B0C";
 				document.getElementById("kelembaban").innerHTML = fields.field7 + " %";
-				document.getElementById("flow").innerHTML = fields.field8 + " L/M";
+				document.getElementById("flow").innerHTML = fields.field8 + " L/H";
 				if (fields.field4 <= 20 || fields.field5 <= 20) {
 					document.getElementById("pupuk").innerHTML = "Pupuk Habis";
 				} else if (fields.field4 <= 50 || fields.field5 <= 50) {
